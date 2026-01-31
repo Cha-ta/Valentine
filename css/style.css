@@ -1,0 +1,242 @@
+/* ===== CSS Variables ===== */
+:root {
+    --pink-light: #FFB6C1;
+    --pink-main: #FF69B4;
+    --pink-dark: #FF1493;
+    --pink-soft: #FFC0CB;
+    --white: #FFFFFF;
+    --red-heart: #FF0000;
+}
+
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-soft) 50%, var(--pink-light) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ===== Floating Hearts ===== */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    animation: floatUp 8s ease-in infinite;
+    opacity: 0.7;
+}
+
+.heart::before {
+    content: '❤️';
+}
+
+/* Position hearts randomly across the screen */
+.heart:nth-child(1) { left: 5%; animation-delay: 0s; animation-duration: 8s; font-size: 18px; }
+.heart:nth-child(2) { left: 15%; animation-delay: 1s; animation-duration: 9s; font-size: 24px; }
+.heart:nth-child(3) { left: 25%; animation-delay: 2s; animation-duration: 7s; font-size: 16px; }
+.heart:nth-child(4) { left: 35%; animation-delay: 0.5s; animation-duration: 10s; font-size: 22px; }
+.heart:nth-child(5) { left: 45%; animation-delay: 3s; animation-duration: 8s; font-size: 20px; }
+.heart:nth-child(6) { left: 55%; animation-delay: 1.5s; animation-duration: 9s; font-size: 18px; }
+.heart:nth-child(7) { left: 65%; animation-delay: 2.5s; animation-duration: 7s; font-size: 26px; }
+.heart:nth-child(8) { left: 75%; animation-delay: 0.8s; animation-duration: 11s; font-size: 14px; }
+.heart:nth-child(9) { left: 85%; animation-delay: 3.5s; animation-duration: 8s; font-size: 20px; }
+.heart:nth-child(10) { left: 95%; animation-delay: 1.2s; animation-duration: 9s; font-size: 22px; }
+.heart:nth-child(11) { left: 10%; animation-delay: 4s; animation-duration: 10s; font-size: 16px; }
+.heart:nth-child(12) { left: 30%; animation-delay: 5s; animation-duration: 7s; font-size: 24px; }
+.heart:nth-child(13) { left: 50%; animation-delay: 2.8s; animation-duration: 8s; font-size: 18px; }
+.heart:nth-child(14) { left: 70%; animation-delay: 4.5s; animation-duration: 9s; font-size: 20px; }
+.heart:nth-child(15) { left: 90%; animation-delay: 3.2s; animation-duration: 10s; font-size: 22px; }
+
+/* Extra hearts for yes page */
+.heart:nth-child(16) { left: 8%; animation-delay: 0.3s; animation-duration: 7s; font-size: 28px; }
+.heart:nth-child(17) { left: 22%; animation-delay: 1.8s; animation-duration: 8s; font-size: 16px; }
+.heart:nth-child(18) { left: 42%; animation-delay: 3.8s; animation-duration: 9s; font-size: 24px; }
+.heart:nth-child(19) { left: 62%; animation-delay: 2.2s; animation-duration: 7s; font-size: 20px; }
+.heart:nth-child(20) { left: 82%; animation-delay: 4.8s; animation-duration: 10s; font-size: 26px; }
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ===== Main Container ===== */
+.container {
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+    position: relative;
+}
+
+/* ===== Title ===== */
+.title {
+    font-size: 2.5rem;
+    color: var(--pink-dark);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.yay-title {
+    font-size: 4rem;
+    animation: bounce 0.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ===== GIF Container ===== */
+.gif-container {
+    margin: 20px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
+    background: var(--white);
+    padding: 10px;
+}
+
+.gif-container iframe {
+    display: block;
+    border-radius: 15px;
+}
+
+/* ===== Buttons Container ===== */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* ===== Buttons ===== */
+.btn {
+    padding: 15px 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, var(--pink-main) 0%, var(--pink-dark) 100%);
+    color: var(--white);
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+}
+
+.no-btn {
+    background: linear-gradient(135deg, #f0f0f0 0%, #ddd 100%);
+    color: #666;
+    position: relative;
+}
+
+.no-btn:hover {
+    background: linear-gradient(135deg, #e0e0e0 0%, #ccc 100%);
+}
+
+/* ===== Love Message (Yes Page) ===== */
+.love-message {
+    font-size: 1.5rem;
+    color: var(--pink-dark);
+    margin-top: 30px;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Yes Page Specific ===== */
+.yes-page {
+    background: linear-gradient(135deg, var(--pink-soft) 0%, var(--pink-light) 50%, #FFE4EC 100%);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .yay-title {
+        font-size: 3rem;
+    }
+    
+    .gif-container iframe {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .btn {
+        padding: 12px 40px;
+        font-size: 1.1rem;
+    }
+    
+    .buttons-container {
+        gap: 20px;
+    }
+    
+    .love-message {
+        font-size: 1.2rem;
+    }
+}
