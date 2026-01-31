@@ -8,6 +8,20 @@ let escapeCount = 0;
 // Maximum scale for the Yes button (2x original size)
 const maxScale = 2;
 
+// Fun messages when the No button escapes
+const messages = [
+    "Nice try! 😏",
+    "Not so fast! 💨",
+    "You can't catch me! 🏃",
+    "Think again! 💕",
+    "Just say yes! 🥺",
+    "Come on... 💖",
+    "Wrong button! ❤️"
+];
+
+// Track message index
+let messageIndex = 0;
+
 // Function to move the No button to a random position
 function escapeNoButton() {
     // Get viewport dimensions
@@ -35,6 +49,17 @@ function escapeNoButton() {
     // Increment escape count and grow the Yes button
     escapeCount++;
     growYesButton();
+    
+    // Show fun message after a few escapes (works on both desktop and mobile)
+    if (escapeCount > 1) {
+        noBtn.textContent = messages[messageIndex % messages.length];
+        messageIndex++;
+        
+        // Reset text after a short delay
+        setTimeout(() => {
+            noBtn.textContent = 'No';
+        }, 1000);
+    }
 }
 
 // Function to make the Yes button grow
@@ -66,30 +91,6 @@ noBtn.addEventListener('touchstart', function(e) {
 noBtn.addEventListener('click', function(e) {
     e.preventDefault();
     escapeNoButton();
-});
-
-// Add some fun messages when the No button escapes (optional enhancement)
-const messages = [
-    "Not so fast! 💨",
-    "You can't catch me! 🏃",
-    "Think again! 💕",
-    "Just say yes! 🥺",
-    "Come on... 💖",
-    "Wrong button! ❤️"
-];
-
-// Change the No button text occasionally
-let messageIndex = 0;
-noBtn.addEventListener('mouseover', function() {
-    if (escapeCount > 2 && escapeCount % 2 === 0) {
-        noBtn.textContent = messages[messageIndex % messages.length];
-        messageIndex++;
-        
-        // Reset text after a short delay
-        setTimeout(() => {
-            noBtn.textContent = 'No';
-        }, 1000);
-    }
 });
 
 // Handle window resize to keep button in bounds
