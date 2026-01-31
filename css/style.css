@@ -159,7 +159,7 @@ body {
 /* ===== Buttons ===== */
 .btn {
     padding: 15px 50px;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     font-weight: bold;
     border: none;
     border-radius: 50px;
@@ -229,7 +229,7 @@ body {
     
     .btn {
         padding: 12px 40px;
-        font-size: 1.1rem;
+        font-size: 1.8rem;
     }
     
     .buttons-container {
