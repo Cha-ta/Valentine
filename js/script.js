@@ -51,7 +51,7 @@ function escapeNoButton() {
     growYesButton();
     
     // Show fun message after a few escapes (works on both desktop and mobile)
-    if (escapeCount > 0) {
+    if (escapeCount >= 1) {
         noBtn.textContent = messages[messageIndex % messages.length];
         messageIndex++;
         
